@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Image Puzzle Game</title>
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: blue;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  background: linear-gradient(to bottom, #002a8f, #0055ff);
+  padding: 30px 20px;
+  color: white;
+}
+
+.header img {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  font-size: 36px;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.header p {
+  font-size: 24px;
+}
+
+/* Navigation Bar */
+.navbar {
+  background-color: #0d1440;
+  overflow: hidden;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.content {
+  background: linear-gradient(to bottom, #e6f3ff, skyblue); /* PVMCO color */
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 900px;
+  color: black;
+}
+
+/* Section Titles */
+.content h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.content h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/* Paragraph Text */
+.content p {
+  text-align: justify;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+  background: #0d1440;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media screen and (max-width: 800px) {
+  .content {
+    margin: 10px;
+    padding: 15px;
+  }
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+
+h1{
+    margin-top:20px;
+}
+#info{
+    margin:10px;
+    font-size:18px;
+}
+#puzzle{
+    width:340px;
+    margin:20px auto;
+    display:grid;
+    grid-template-columns:repeat(4,80px);
+    grid-template-rows:repeat(4,80px);
+    gap:5px;
+}
+.tile{
+    width:80px;
+    height:80px;
+    background:#ccc;
+    cursor:pointer;
+}
+.empty{
+    background:#999;
+    cursor:default;
+}
+button{
+    padding:8px 15px;
+    font-size:16px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>Image Sliding Puzzle</h1>
+
+<div id="info">
+    Time: <span id="time">0</span>s |
+    Score: <span id="score">0</span>
+</div>
+
+<button onclick="startGame()">Shuffle</button>
+
+<div id="puzzle"></div>
+
+<script>
+let timerInterval;
+let time = 0;
+let score = 0;
+let size = 4;
+let pieces = [];
+
+function startTimer(){
+    clearInterval(timerInterval);
+    time = 0;
+    document.getElementById("time").textContent = time;
+    timerInterval = setInterval(()=>{
+        time++;
+        document.getElementById("time").textContent = time;
+    },1000);
+}
+
+function updateScore(){
+    score++;
+    document.getElementById("score").textContent = score;
+}
+
+function startGame(){
+    score = 0;
+    document.getElementById("score").textContent = score;
+
+    pieces = [];
+    for(let i=0;i<15;i++) pieces.push(i);
+    pieces.push(null);
+
+    shuffle(pieces);
+    startTimer();
+    render();
+}
+
+function render(){
+    const puzzle = document.getElementById("puzzle");
+    puzzle.innerHTML="";
+
+    pieces.forEach((p,i)=>{
+        let div=document.createElement("div");
+        div.className="tile";
+
+        if(p===null){
+            div.classList.add("empty");
+        }else{
+            div.style.backgroundImage="url('https://picsum.photos/320')";
+            div.style.backgroundSize="320px 320px";
+
+            let row=Math.floor(p/size);
+            let col=p%size;
+            div.style.backgroundPosition=`-${col*80}px -${row*80}px`;
+
+            div.onclick=()=>move(i);
+        }
+
+        puzzle.appendChild(div);
+    });
+}
+
+function move(i){
+    let empty=pieces.indexOf(null);
+    let valid=[i-1,i+1,i-4,i+4];
+
+    if(valid.includes(empty) &&
+    ((Math.abs(i-empty)==1 && Math.floor(i/4)==Math.floor(empty/4)) ||
+     Math.abs(i-empty)==4)){
+
+        [pieces[i],pieces[empty]]=[pieces[empty],pieces[i]];
+        updateScore();
+        render();
+        checkWin();
+    }
+}
+
+function checkWin(){
+    for(let i=0;i<15;i++){
+        if(pieces[i]!==i){
+            return;
+        }
+    }
+    clearInterval(timerInterval);
+    alert("Puzzle Completed! Time: " + time + " seconds. Moves: " + score);
+}
+
+function shuffle(arr){
+    for(let i=arr.length-1;i>0;i--){
+        let j=Math.floor(Math.random()*(i+1));
+        [arr[i],arr[j]]=[arr[j],arr[i]];
+    }
+}
+
+startGame();
+</script>
+
+</body>
+</html>

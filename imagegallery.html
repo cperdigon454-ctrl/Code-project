@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> IMAGE GALLERY OF STEM </title>
+</head>
+<body>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: blue;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  background: linear-gradient(to bottom, #002a8f, #0055ff);
+  padding: 30px 20px;
+  color: white;
+}
+
+.header img {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  font-size: 36px;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.header p {
+  font-size: 24px;
+}
+
+/* Navigation Bar */
+.navbar {
+  background-color: #0d1440;
+  overflow: hidden;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.content {
+  background: linear-gradient(to bottom, #e6f3ff, skyblue); /* PVMCO color */
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 900px;
+  color: black;
+}
+
+/* Section Titles */
+.content h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.content h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/* Paragraph Text */
+.content p {
+  text-align: justify;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+  background: #0d1440;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media screen and (max-width: 800px) {
+  .content {
+    margin: 10px;
+    padding: 15px;
+  }
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+
+/* Outer Container */
+.wrapper {
+    margin: 30px;
+    background: #cfe3f5;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Scrollable Gallery */
+.gallery {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+/* Custom Scrollbar */
+.gallery::-webkit-scrollbar {
+    height: 10px;
+}
+.gallery::-webkit-scrollbar-track {
+    background: #d3d3d3;
+    border-radius: 10px;
+}
+.gallery::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* Image Card */
+.card {
+    flex: 0 0 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<div class="header">
+  <img src="STEM.png" alt="Stem Logo">
+  <h1> SCIENCE, TECHNOLOGY, ENGINEERING, AND MATHEMATICS </h1>
+  <p> STEM </p>
+</div>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+  <a href="index.html">MAIN PAGE</a>
+  <a href="aboutstem.html">ABOUT STEM</a>
+  <a href="imagegallery.html">IMAGE GALLERY</a>
+  <a href="videogallery.html">VIDEO GALLERY</a>
+  <a href="puzzle.html" style="float:right">GAMES</a>
+</div>
+
+<div class="wrapper">
+    <div class="gallery">
+        <div class="card">
+            <img src="STEM1 (1).jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM1 (2).jpg" alt="Image 2">
+        </div>
+        <div class="card">
+            <img src="STEM1 (3).jpg" alt="Image 3">
+        </div>
+        <div class="card">
+            <img src="STEM1 (4).jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM1 (5).jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM1 (6).jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM1 (7).jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM1 (8).jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM1 (9).jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM1 (10).jpg" alt="Image 1">
+        </div>
+
+        <div class="card">
+            <img src="STEM1 (11).jpg" alt="Image 1">
+        </div>
+
+        <div class="card">
+            <img src="STEM1 (12).jpg" alt="Image 1">
+        </div>
+
+        <div class="card">
+            <img src="STEM1 (13).jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM1 (14).jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM (15) .jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM (16) .jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM (17) .jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM (18).jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM 19.jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM 20.jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM 21.jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM 22.jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM 23.jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM 24.jpg" alt="Image 1">
+        </div>
+        <div class="card">
+            <img src="STEM 25.jpg" alt="Image 1">
+        </div>
+    </div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>© 2026 Laguna College of Business and Arts</p>
+</div>
+
+</body>
+</html>
